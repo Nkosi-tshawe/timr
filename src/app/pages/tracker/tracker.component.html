@@ -1,0 +1,125 @@
+<nz-tabset nzSize="large">
+  <nz-tab nzTitle="Day View">
+    <div class="timer-wrapper row align-items-center mb-5">
+      <div class="left col-8">
+        <button nz-button nzShape="round" class="btn-dropdown" nzType="default">
+          <span nz-icon nzType="plus"></span>
+          <span>Project & Task</span>
+        </button>
+      </div>
+      <div
+        class="right col-4 row align-items-center gap-16 justify-content-end"
+      >
+        <div>
+          <button
+            nz-button
+            nzShape="round"
+            class="btn-dropdown"
+            nzType="default"
+          >
+            <span nz-icon nzType="calendar"></span>
+            <span>Today</span>
+          </button>
+        </div>
+        <span class="color-gray font-weight-bold">&rarr;</span>
+        <div class="clock-wrapper">
+          <h5
+            class="mb-0 color-gray font-weight-bold timer"
+            [ngClass]="timeStarted ? 'color-red' : ''"
+          >
+            <cd-timer #basicTimer format="hms" [startTime]="0"></cd-timer>
+          </h5>
+        </div>
+        <button
+          nz-button
+          nzShape="circle"
+          nzType="default"
+          nzSize="large"
+          (click)="onStartEndTime()"
+          class="d-flex align-items-center justify-content-center start-end-button"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24px"
+            height="24px"
+            viewBox="0 0 512 512"
+            *ngIf="!timeStarted"
+          >
+            <path
+              d="M133,440a35.37,35.37,0,0,1-17.5-4.67c-12-6.8-19.46-20-19.46-34.33V111c0-14.37,7.46-27.53,19.46-34.33a35.13,35.13,0,0,1,35.77.45L399.12,225.48a36,36,0,0,1,0,61L151.23,434.88A35.5,35.5,0,0,1,133,440Z"
+              fill="#ffffff"
+            />
+          </svg>
+          <span
+            *ngIf="timeStarted"
+            nz-icon
+            nzType="pause"
+            nzTheme="outline"
+          ></span>
+        </button>
+      </div>
+    </div>
+    <nz-divider nzDashed [nzText]="text">
+      <ng-template #text>
+        <div class="d-flex align-items-center">
+          <span class="color-gray" style="font-size: 12px">This Week</span>
+          <h6 class="mb-0 ml-2">35:00</h6>
+        </div>
+      </ng-template>
+    </nz-divider>
+
+    <div class="mb-4">
+      <nz-card [nzTitle]="titleTemplate" [nzExtra]="extraTemplate">
+        <div class="row align-items-center mb-3">
+          <div class="col-11">
+            <h6 class="mb-0">GetSpace</h6>
+            <p class="color-gray">
+              Small description of what was done on the project.
+            </p>
+          </div>
+          <div class="col-1 d-flex justify-content-end">
+            <h6 class="text-right">6:00</h6>
+          </div>
+        </div>
+        <div class="row align-items-center">
+          <div class="col-11">
+            <h6 class="mb-0">OHS</h6>
+            <p class="color-gray">
+              Small description of what was done on the project.
+            </p>
+          </div>
+          <div class="col-1 d-flex justify-content-end">
+            <h6 class="text-right">2:05</h6>
+          </div>
+        </div>
+      </nz-card>
+      <ng-template #extraTemplate>
+        <h5>8:05</h5>
+      </ng-template>
+      <ng-template #titleTemplate>
+        <h5>Today</h5>
+      </ng-template>
+    </div>
+    <div class="mb-3">
+      <nz-card [nzTitle]="titleTemplate2" [nzExtra]="extraTemplate2">
+        <div class="row align-items-center mb-3">
+          <div class="col-11">
+            <h6 class="mb-0">GetSpace</h6>
+            <p class="color-gray">
+              Small description of what was done on the project.
+            </p>
+          </div>
+          <div class="col-1 d-flex justify-content-end">
+            <h6 class="text-right">6:00</h6>
+          </div>
+        </div>
+      </nz-card>
+      <ng-template #extraTemplate2>
+        <h5>8:00</h5>
+      </ng-template>
+      <ng-template #titleTemplate2>
+        <h5>Tue, 07 Nov</h5>
+      </ng-template>
+    </div>
+  </nz-tab>
+</nz-tabset>
